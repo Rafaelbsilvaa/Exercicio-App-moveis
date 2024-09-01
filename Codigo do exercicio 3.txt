@@ -1,0 +1,92 @@
+Codigo do exercicio 3:
+
+void main() {
+ 
+
+  Pessoa novaPessoa = Pessoa('Maria', 20, 'rua X');
+  novaPessoa.exibirDetalhes();
+}
+
+class Pessoa {
+  String nome;
+  int idade;
+  String endereco;
+ 
+  Pessoa(this.nome, this.idade, this.endereco);
+ 
+  void exibirDetalhes(){
+    print('Nome: $nome');
+    print('Idade: $idade');
+    print('Endereço: $endereco');
+  }
+}
+
+
+Código do exercício 4:
+
+
+abstract class Animal{
+  void fazerSom();
+}
+
+class Cachorro extends Animal{
+  @override
+  void fazerSom() {
+    print ('Au Au');
+  }
+}
+
+class Gato extends Animal{
+  @override
+  void fazerSom() {
+    print('Miau');
+  }
+}
+
+void main(){
+  List<Animal> animais = [Cachorro(), Gato()];
+  
+  for (var animal in animais) {
+    animal.fazerSom();
+  }
+}
+
+Código do Exercício 5:
+
+
+class ContaBancaria{
+  double saldo;
+  String numeroConta;
+
+
+ContaBancaria(this.numeroConta, this.saldo);
+
+void depositar (double valor) {
+  saldo += valor;
+  print('Deposito de R\$ $valor realizado. Saldo atual: R\$ $saldo');
+}
+
+void sacar(double valor) {
+  if (valor > saldo) {
+    print('Erro: saldo insuficiente. Saque de R\$ $valor não realizado.');
+  } else{
+    saldo -= valor;
+    print('Saque de R\$ $valor realizado. Saldo atual: R\$ $saldo');
+  }
+}
+
+void exibirSaldo(){
+  print('O saldo final da conta $numeroConta é R\$ $saldo');
+  }
+}
+
+void main(){
+  ContaBancaria conta = ContaBancaria('12345-6', 1000.0);
+  
+  conta.depositar(500.00);
+  conta.sacar(300.00);
+  conta.sacar(1500.0);
+    
+   conta.exibirSaldo();
+}
+
